@@ -6,7 +6,7 @@ Converter specific behaviour is discussed in converter notes.
   
 ## Objective:  
   
-We want to extract maximum power from what can be modelled as a non-ideal current source (solar panel).   
+For MPPT stage, we want to extract maximum power from what can be modelled as a non-ideal current source (solar panel).   
    
 Since a solar panel cannot output infinite power, we cannot increase the load indefitely and expect the same current.  
 There is an optimum resistance across the panel for which we obtain the greatest value for instantaneous power, I*V.  
@@ -36,6 +36,25 @@ While switch is off and inductor is disconnected from source, di/dt changes sign
 Since inductor resists changes in current, voltage is induced across inductor to keep current flowing. This voltage is opposite in sign relative to the EMF across inductor during charging phase.  
 
 As this process is repeated, the system reaches a periodic steady state (PSS) where average inductor voltage per cycle is 0.  
+## CCM VS DCM  
+   
+### CCM  
+In CCM, current is continuously flowing through inductor. This is the state assumed in all notes and formulae so far.
+
+### DCM   
+  
+When inductor runs out of energy in its magnetic field, it can no longer induce a voltage to keep current flowing. This means that current reaches 0 during inductor discharge of cycle.  
+di/dt=V/L,
+E=0.5*L*I^2, where L is constant.  
+  
+(Vin-Vout)*D*T/L=inductor current ripple, where T is switching period.  
+If half the amplitude of inductor ripple current is greater than average current through load, inductor will run out of energy and hence circuit will operate in DCM.  
+So circuit is in DCM when:
+Iavg<0.5*(Vin-Vout)*D*T/L
+  
+Equivalent resistance and Vout formulae in CCM is no longer valid in DCM.  
+   
+This adds complexity that can be avoided by sizing the inductor appropriately to avoid DCM under all conditions and edge cases, especially low load and low power.   
    
 ### Effective resistance seen by the panel   
   
@@ -45,7 +64,7 @@ This point of optimum equivalent resistance is called maximum power point, or MP
 There are three main topologies we can use:  
 1-Buck  
 2-Boost  
-3-Buck/Boost  
+3-Buck/Boost 
 Equivalent resistance formula for these converters will each be derived in their respective notes section.  
   
 #### Input decoupling for MPP stability  

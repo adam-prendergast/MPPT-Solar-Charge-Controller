@@ -1,10 +1,6 @@
 # Boost Converter  
 ## Summary  
-This section:  
-   
--Analyses how a boost converter operates through discussing the effect of each key circuit component on boost converter operation.   
-  
--Derives equivalent resistance formula specific to a boost converter.  
+This section analyses how a boost converter operates through discussing the effect of each key circuit component and formula on boost converter operation.  
     
 ## Boost Converter Key Components    
 ### 01-MOSFET  
@@ -26,7 +22,7 @@ This shows slope of inductor current is equal to:
   
 Average voltage at output=(average input voltage)/(1-D).  
 Since average voltage of an inductor in Periodic Steady State = 0, volt-seconds inducing voltage across load must be equal to volt-seconds inducing EMF during charging period.  
-Therefore avergae voltage across load must be Vin*1/(time proportion not charging inductor) which is what this formula shows.   
+Therefore average voltage across load must be Vin/(time proportion not charging inductor) which is what this formula shows.   
   
 ### 03-CAPACITOR  
 Capacitor draws or provides current in order to limit magnitude of dV/dt.  
@@ -50,4 +46,4 @@ Capacitor across input terminals also helps reduce voltage ripple from source an
   
 ### 04-Synchronous MOSFET  
 Acts as current path to complete circuit only when inductor is being charged (load disconnectd).  
-Acts as open circuit when inductor is acting as source (power must go through load).
+Acts as open circuit when inductor is acting as source.

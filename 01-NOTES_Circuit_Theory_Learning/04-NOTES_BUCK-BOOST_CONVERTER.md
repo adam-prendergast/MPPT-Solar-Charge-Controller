@@ -1,14 +1,15 @@
-# Buck Converter for Solar MPPT   
+# NOTES ON NON-INVERTING BUCK/BOOST CONVERTER  
 ## Summary  
-This section analyses how a buck converter operates through discussing the effect of each key circuit component and key equations on buck converter operation.    
+This section analyses how a non-inverting buck converter operates through discussing the effect of each key circuit component on converter operation.     
     
-## Buck Converter Key Components    
-### 01-MOSFET  
-Acts as a switch between input voltage and inductor. Switches repeatedly to reduce average voltage applied across inductor, and thereby controls average output voltage.    
+## Non-Inverting 4-MOSFET Buck/Boost Converter Key Components    
+### 01-MOSFETs
+Act as a switch between input voltage and inductor. Switches to change conduction path, which results in converter acting as buck, boost or buck boost converter. 
+Power MOSFET switches repeatedly to control average voltage applied across inductor, and thereby controls average output voltage.    
   
 ### 02-INDUCTOR  
 Generates an EMF (voltage) from energy stored in its magnetic field to resist changes in current, consequentially resulting in smoother output current. (reducing current and voltage ripple amplitude)  
-**KEY FORMULA:**  
+KEY EQUATION:  
 V = L*di/dt  
 Rearranging:  
 di/dt=V/L  
@@ -29,27 +30,18 @@ Therefore a higher capacitance will mean a lower ripple voltage in Periodic Stea
 Since there will be some current ripple, current is a time varying function in PSS.  
 From Ohm's Law: Vcap=Icap*Rcap  
 All capacitors have some equivalent series resistance (ESR) represented here as Rcap.  
-This ESR will cause a ripple voltage of magnitude Icap*Rcap, where Icap and Rcap are instantaneous current and ESR of capacitor respectively.  
+This ESR will cause a ripple voltage of magnitude Icap*Rcap, where Icap and Rcap are instantaneous current and ESR of capacitor respectively.    
 This implies having a capacitor of low ESR is advantageous for reducing voltage and current ripple caused by ESR losses.  
 
 Capacitor across input terminals also helps reduce voltage ripple from source and ensures panel sees constant load from the buck converter, so that it does not drift from its Maximum Power Point.(MPP)  
   
 ### 04-FREEWHEELING DIODE (or MOSFET in synchronous sytems)  
 Acts as current path to complete circuit only when inductor acts as current source when MOSFET is off (source disconnected). 
-  
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
+## EQUATIONS TO NOTE:
+Vout during Buck/Boost mode:Vout=-D/(1-D)  
+Vout during Buck mode:Vout=Vin*D  
+Vout during Boost mode+Vout=Vin/(1-D)  
+Req during buck/boost mode: Req=Rload/(Vout/Vin)
+Req during Buck mode:Req=Rload/D^2  
+Req during Boost mode:Req=Rload*(1-D)^2
 
