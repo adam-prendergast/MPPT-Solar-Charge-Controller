@@ -13,7 +13,7 @@ My notes on the Circuit Theory relevant to this project can be found [here](01-N
 [Notes on Deciding circuit topology](02-NOTES_Circuit_Design/2.2-Deciding_Circuit_Topology.md)  
    
 ### 2.2-Circuit Simulation (LTspice & MATLAB)  
-[Ideal switch buck converter model](02-notes_Circuit_Design/2.1-Circuit_Simulation/BUCK_TRANSIENT_SIMULATION.asc)  
+[Ideal switch buck converter model](02-NOTES_Circuit_Design/2.1-Circuit_Simulation/BUCK_TRANSIENT_SIMULATION.asc)  
 [MATLAB_BUCK_CONVERTER_MODEL](02-NOTES_Circuit_Design/2.1-Circuit_Simulation/BUCK_CONVERTER_V_OUT_SIMULATION.m)  
   
 ### 2.3-Component Selection  
