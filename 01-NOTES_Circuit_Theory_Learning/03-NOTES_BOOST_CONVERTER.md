@@ -1,6 +1,6 @@
 # Boost Converter  
 ## Summary  
-This section analyses how a boost converter operates through discussing the effect of each key circuit component and formula on boost converter operation.  
+This section analyses how a boost converter operates through discussing the effect of each key circuit component and formulae on boost converter operation.  
     
 ## Boost Converter Key Components    
 ### 01-MOSFET  
@@ -26,7 +26,7 @@ Therefore average voltage across load must be Vin/(time proportion not charging 
   
 ### 03-CAPACITOR  
 Capacitor draws or provides current in order to limit magnitude of dV/dt.  
-This reduces voltage and current ripple from inductor through storing and releasing energy in electric fields.  
+This reduces voltage ripple from inductor through storing and releasing energy in electric fields.  
 KEY FORMULA:  
 I=C*dV/dt
 Rearranging:  

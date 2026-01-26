@@ -1,4 +1,4 @@
-# Solar MPPT and equivalent resistance Theory  
+# Solar MPPT and Equivalent Resistance Theory  
 ## Summary  
 This section describes how equivalent resistance of MPPT circuit is controlled in order to maximise power output from solar panel and dicusses effect of switching frequency on circuit performance.  
   
@@ -42,19 +42,19 @@ As this process is repeated, the system reaches a periodic steady state (PSS) wh
 In CCM, current is continuously flowing through inductor. This is the state assumed in all notes and formulae so far.
 
 ### DCM   
-  
 When inductor runs out of energy in its magnetic field, it can no longer induce a voltage to keep current flowing. This means that current reaches 0 during inductor discharge of cycle.  
 di/dt=V/L,
 E=0.5*L*I^2, where L is constant.  
   
 (Vin-Vout)*D*T/L=inductor current ripple, where T is switching period.  
-If half the amplitude of inductor ripple current is greater than average current through load, inductor will run out of energy and hence circuit will operate in DCM.  
+**If half the amplitude of inductor ripple current is greater than average current through load, inductor will run out of energy and hence circuit will operate in DCM.** 
 So circuit is in DCM when:
 Iavg<0.5*(Vin-Vout)*D*T/L
   
 Equivalent resistance and Vout formulae in CCM is no longer valid in DCM.  
    
-This adds complexity that can be avoided by sizing the inductor appropriately to avoid DCM under all conditions and edge cases, especially low load and low power.   
+This adds complexity that could be avoided by sizing the inductor appropriately to avoid DCM under all conditions and edge cases, especially low load and low power.  
+Further analysis to be completed in "Component selection" to identify required inductance to enforce CCM in all operating scenarios, and decide whether this is practical, or if another approach may be necessary to manage DCM operation.  
    
 ### Effective resistance seen by the panel   
   
@@ -70,7 +70,7 @@ Equivalent resistance formula for these converters will each be derived in their
 #### Input decoupling for MPP stability  
 Whilst MOSFET is open circuit, power is not instantaneously being extracted from solar cells.  
 Some of this energy is wasted if capacitance of source is not sufficient to keep panel operating voltage very close to MPP voltage.  
-Higher switching frequency reduces source voltage ripple which means more stable operating voltage of solar panel and hence closer operation to MPP on average.
+Higher switching frequency reduces source voltage ripple which means more stable operating voltage of solar panel and hence closer operation to MPP on average.  
   
 ## Notes on switching frequency  
 **EFFECT OF MOSFET SWITCHING FREQUENCY ON OUTPUT:**    
@@ -79,6 +79,5 @@ Shorter switching period means less time per cycle, which limits magnitude of cu
 This reduces amplitude of current and voltage ripple.  
    
 So higher switching frequency = more stable output voltage and current.  
-
-Practically however, with non-ideal MOSFETs there are increased switching losses at higher frequencies. This is a tradeoff which must be considered when designating switching frequency for a converter.
-
+  
+Practically however, with non-ideal MOSFETs there are increased switching losses at higher frequencies. This is a tradeoff which must be considered when designating switching frequency for a converter.  
